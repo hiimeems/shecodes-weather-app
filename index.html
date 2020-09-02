@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link href="src/styles.css" rel="stylesheet" type="text/css" />
+    <title>Weather Now or Later</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather-app">
+        <h1>Weather Now or Later</h1>
+        <form id="search-form">
+          <input
+            type="search"
+            placeholder="enter city here"
+            class="search-button"
+            id="search-bar"
+          />
+
+          <input type="submit" value="search" class="btn btn-info" />
+          <button class="btn btn-success" id="current-location">current</button>
+        </form>
+        <div class="row">
+          <div class="col-4">
+            <ul class="today">
+              <li id="today">monday 13:00</li>
+              <li id="date">august 10</li>
+              <li id="city"></li>
+            </ul>
+          </div>
+          <div class="col-4" id="new-temp">
+            <span class="temperature" id="show-temp"></span>
+            <span class="units"> °C | °F </span>
+          </div>
+          <div class="col-4">
+            <img
+              src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+              alt="partly cloudy icon"
+            /><br />
+          </div>
+        </div>
+
+        <ul class="update">
+          <hr />
+          <li>condition: <span id="display-description"></span></li>
+          <li>humidity: <span id="display-humidity"></span>%</li>
+
+          <hr />
+        </ul>
+
+        <div class="row">
+          <div class="col-3">
+            <div class="card">
+              <div class="card-body">
+                <strong>
+                  <p class="day"><span class="nowrap">tuesday</span></p>
+                </strong>
+                <br />
+                <p><span class="nowrap">condition: 🌧️</span></p>
+                <p><span class="nowrap">humidity: 13%</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="card">
+              <div class="card-body">
+                <strong>
+                  <p class="day"><span class="nowrap">wednesday</span></p>
+                </strong>
+                <br />
+                <p><span class="nowrap">condition: 🌧️</span></p>
+                <p><span class="nowrap">humidity: 15%</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="card">
+              <div class="card-body">
+                <strong>
+                  <p class="day"><span class="nowrap">thursday</span></p>
+                </strong>
+                <br />
+                <p><span class="nowrap">condition: 🌧️</span></p>
+                <p><span class="nowrap">humidity: 16%</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="card">
+              <div class="card-body">
+                <strong>
+                  <p class="day"><span class="nowrap">friday</span></p>
+                </strong>
+                <br />
+                <p><span class="nowrap">condition: 🌧️</span></p>
+                <p><span class="nowrap">humidity: 15%</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
