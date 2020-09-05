@@ -103,8 +103,10 @@ a:hover {
   line-height: 1;
 }
 
-.today {
+.today,
+.date {
   text-decoration: underline;
+  text-transform: uppercase;
 }
 
 .weather-app {
