@@ -1,47 +1,41 @@
-let now = new Date();
-//console.log(now);
+function formatDate(timestamp) {
+  let now = new Date();
+  let dateElement = now.getDate();
+  let months = [
+    "jan",
+    "feb",
+    "mar",
+    "apr",
+    "may",
+    "jun",
+    "jul",
+    "aug",
+    "sep",
+    "oct",
+    "nov",
+    "dec",
+  ];
+  let month = months[now.getMonth()];
 
-let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-let day = days[now.getDay()];
+  let date = document.querySelector(`#date`);
+  date.innerHTML = `${month} ${dateElement}`;
 
-let date = now.getDate();
+  let hours = now.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+  let day = days[now.getDay()];
 
-let hours = now.getHours();
-if (hours < 10) {
-  hours = `0${hours}`;
+  return `${day} ${hours}:${minutes}`;
 }
-
-let months = [
-  "JAN",
-  "FEB",
-  "MAR",
-  "APR",
-  "MAY",
-  "JUN",
-  "JUL",
-  "AUG",
-  "SEP",
-  "OCT",
-  "NOV",
-  "DEC",
-];
-let month = months[now.getMonth()];
-
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
-}
-
-let today = document.querySelector("#today");
-today.innerHTML = `${days[now.getDay()]} ${hours}:${minutes}`;
-//console.log(today);
-
-let monthAndDate = document.querySelector("#date");
-monthAndDate.innerHTML = `${month} ${date}`;
-//console.log(monthAndDate);
 
 function weatherCondition(response) {
-  //console.log(response.data);
+  console.log(response.data);
   document.querySelector(`#city`).innerHTML = response.data.name;
   document.querySelector(`#show-temp`).innerHTML = Math.round(
     response.data.main.temp
@@ -50,6 +44,9 @@ function weatherCondition(response) {
     response.data.weather[0].description;
   document.querySelector(`#display-humidity`).innerHTML =
     response.data.main.humidity;
+  document.querySelector(`#today`).innerHTML = formatDate(
+    response.data.dt * 1000
+  );
 }
 
 function searchCity(city) {
