@@ -11,10 +11,10 @@ hr {
 }
 
 img {
-  position: absolute;
-  left: 171px;
-  bottom: -1px;
-  size: 20px;
+  vertical-align: middle;
+  border-style: none;
+  position: relative;
+  right: 51px;
 }
 
 input {
@@ -34,12 +34,13 @@ ul {
 
 a {
   color: white;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 a:hover {
   color: white;
   text-decoration: none;
-  cursor: pointer;
 }
 
 h1:hover {
@@ -91,12 +92,12 @@ button:hover {
 }
 
 .new-temp .active {
-  color: black;
+  color: aqua;
   text-decoration: none;
 }
 
 .new-temp .active:hover {
-  color: white;
+  color: aqua;
   text-decoration: none;
   cursor: default;
 }
