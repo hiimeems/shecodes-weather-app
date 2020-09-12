@@ -13,8 +13,6 @@ hr {
 img {
   vertical-align: middle;
   border-style: none;
-  position: relative;
-  right: 51px;
 }
 
 input {
@@ -89,6 +87,12 @@ button:hover {
   line-height: 3;
   position: relative;
   bottom: -15px;
+}
+
+.image-icon {
+  position: relative;
+  right: 40px;
+  bottom: 10px;
 }
 
 .new-temp .active {
