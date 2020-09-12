@@ -154,3 +154,20 @@ button:hover {
   line-height: normal;
   color: #ffffffd2;
 }
+
+.weather-forecast h3 {
+  font-size: 15px;
+  font-weight: 600;
+  height: 11px;
+}
+
+.weather-forecast img {
+  display: block;
+  margin: 0 auto;
+  height: 61px;
+  width: 58px;
+}
+
+.weather-forecast-temperature {
+  line-height: 10px;
+}
