@@ -20,6 +20,14 @@ function formatDate(timestamp) {
   let date = document.querySelector(`#date`);
   date.innerHTML = `${month} ${dateElement}`;
 
+  let days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+  let day = days[now.getDay()];
+
+  return `${day} ${formatHours(timestamp)}`;
+}
+
+function formatHours(timestamp) {
+  let now = new Date(timestamp);
   let hours = now.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
@@ -28,10 +36,8 @@ function formatDate(timestamp) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  let days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
-  let day = days[now.getDay()];
 
-  return `${day} ${hours}:${minutes}`;
+  return `${hours}:${minutes}`;
 }
 
 function weatherCondition(response) {
@@ -59,6 +65,31 @@ function weatherCondition(response) {
     .setAttribute("alt", response.data.weather[0].description);
 }
 
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 4; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+          <div class="col-3">
+            <h3>
+              ${formatHours(forecast.dt * 1000)}
+            </h3>
+            <img src="http://openweathermap.org/img/wn/${
+              forecast.weather[0].icon
+            }@2x.png" />
+            <div class="weather-forecast-temperature">
+              <strong>${Math.round(
+                forecast.main.temp_max
+              )}°</strong> ${Math.round(forecast.main.temp_min)}°
+            </div>
+          </div>
+    `;
+  }
+}
+
 function searchCity(city) {
   //console.log(city);
   let units = "metric";
@@ -67,6 +98,9 @@ function searchCity(city) {
   let apiUrl = `${apiEndpoint}?q=${city}&appid=${apiKey}&units=${units}`;
 
   axios.get(apiUrl).then(weatherCondition);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function handleRequest(event) {
