@@ -19,6 +19,8 @@ h1:hover {
 hr {
   max-width: 132px;
   border: 1px solid #ffffffd2;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 img {
