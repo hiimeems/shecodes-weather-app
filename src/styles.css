@@ -46,7 +46,7 @@ small {
   line-height: 0px;
 }
 
-small:hover {
+i:hover {
   text-decoration: underline;
   color: blueviolet;
   cursor: pointer;
