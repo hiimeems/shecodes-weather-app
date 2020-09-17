@@ -91,7 +91,6 @@ function displayForecast(response) {
 }
 
 function searchCity(city) {
-  //console.log(city);
   let units = "metric";
   let apiEndpoint = `https://api.openweathermap.org/data/2.5/weather`;
   let apiKey = `6e655c51885a817c91e42c6e1aa56edf`;
@@ -105,7 +104,6 @@ function searchCity(city) {
 
 function handleRequest(event) {
   event.preventDefault();
-  //console.log(event);
   let city = document.querySelector("#search-bar").value;
   searchCity(city);
 }
@@ -123,7 +121,6 @@ function findMe(position) {
 }
 
 function locateMe(event) {
-  //console.log(event);
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(findMe);
 }
