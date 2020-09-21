@@ -111,6 +111,23 @@ function handleRequest(event) {
 let searchForm = document.querySelector(`#search-form`);
 searchForm.addEventListener("submit", handleRequest);
 
+function findMe(position) {
+  let units = "metric";
+  let apiEndpoint = `https://api.openweathermap.org/data/2.5/weather`;
+  let apiKey = `6e655c51885a817c91e42c6e1aa56edf`;
+  let apiUrl = `${apiEndpoint}?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${units}`;
+
+  axios.get(apiUrl).then(weatherCondition);
+}
+
+function locateMe(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(findMe);
+}
+
+let button = document.querySelector(`#current-location`);
+button.addEventListener("click", locateMe);
+
 let celsiusTemp = null;
 
 function displayFahrenheitTemp(event) {
