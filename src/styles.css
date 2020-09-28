@@ -1,7 +1,7 @@
 h1 {
   text-align: center;
   margin: 20px auto;
-  font-family: "Bungee Inline", cursive;
+  font-family: monospace;
   color: #ffffffd2;
 }
 
@@ -75,35 +75,15 @@ button:hover {
   transition: rgb(252, 78, 107) 2ms ease-in-out;
 }
 
-.btn-info {
-  padding: 6px;
-}
-
-.card {
-  color: #000000;
-  background-color: #ffffffd2;
-  text-align: center;
-}
-
-.card-body {
-  padding: 0px;
-}
-
-.container {
+.weather-app {
   display: block;
   text-align: center;
-  margin: 0 auto;
+  margin: 20px auto;
   border-radius: 4px;
   background-color: #4489a98f;
+  border: 4px solid #4489a98f;
   max-width: 600px;
-  padding: 0;
-}
-
-.day {
-  text-decoration: underline;
-  line-height: 3;
-  position: relative;
-  bottom: -15px;
+  padding: 10px;
 }
 
 .image-icon {
@@ -123,21 +103,9 @@ button:hover {
   cursor: default;
 }
 
-.nowrap {
-  white-space: nowrap;
-}
-
-.recent-update {
-  margin-bottom: 10px;
-}
-
 .row {
   margin: 20px;
   color: #a5fc04;
-}
-
-.search-button {
-  border: double;
 }
 
 .float-left {
@@ -148,19 +116,11 @@ button:hover {
   right: 63px;
 }
 
-.today,
-.date {
+.city,
+.date,
+.today {
   text-decoration: underline;
   text-transform: uppercase;
-}
-
-.weather-app {
-  border: 4px solid #4489a98f;
-  border-radius: 4px;
-  padding: 10px;
-  margin: 20px auto;
-  max-width: 600px;
-  display: block;
 }
 
 .units {
